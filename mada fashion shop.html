@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mada Fashion shop</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Mada Fashion</h1>
+  </header>
+
+  <nav>
+    <div class="nav-left">
+      <span>Currency:</span>
+      <select id="currency-selector">
+        <option value="ZAR">ZAR (R)</option>
+        <option value="USD">USD ($)</option>
+        <option value="EUR">EUR (€)</option>
+      </select>
+    </div>
+    <div class="nav-right">
+      <button onclick="toggleCart()">🛒 View Cart</button>
+    </div>
+  </nav>
+
+  <main id="product-list">
+    <div class="product">
+      <img src="https://cottonon.com/on/demandware.static/-/Sites-coton-Library/default/dw6d67c8ce/images/9360107127064/9360107127064-01-2.jpg" alt="Organic Knit Bubbysuit"/>
+      <h3>Organic Knit Bubbysuit</h3>
+      <p class="price-display" data-price="299">R299</p>
+      <button onclick="addToCart('Organic Knit Bubbysuit', 299)">Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <img src="https://cottonon.com/on/demandware.static/-/Sites-coton-Library/default/dw1b598eec/images/9360107215068/BABY_BOY_ROMPER.jpg" alt="Striped Romper"/>
+      <h3>Striped Baby Romper</h3>
+      <p class="price-display" data-price="249">R249</p>
+      <button onclick="addToCart('Striped Baby Romper', 249)">Add to Cart</button>
+    </div>
+  </main>
+
+  <div id="cart-items" class="hidden">
+    <h3>Your Cart</h3>
+    <ul id="cart-list"></ul>
+    <p><strong>Total: <span id="cart-total">R0</span></strong></p>
+    <button onclick="checkout()">Checkout</button>
+  </div>
+
+  <div id="checkout" class="hidden">
+    <h3>Enter Payment Details</h3>
+    <form id="payment-form" onsubmit="submitPayment(event)">
+      <select id="payment-method" onchange="togglePaymentInputs()">
+        <option value="card">Credit/Debit Card</option>
+        <option value="paypal">PayPal</option>
+      </select>
+
+      <div id="card-details">
+        <input type="text" placeholder="Name on Card" required />
+        <input type="number" placeholder="Card Number" required />
+        <input type="text" placeholder="Expiry (MM/YY)" required />
+        <input type="number" placeholder="CVV" required />
+      </div>
+
+      <div id="paypal-details">
+        <input type="email" placeholder="PayPal Email" required />
+      </div>
+
+      <button type="submit">Confirm Payment</button>
+    </form>
+  </div>
+
+  <footer>
+    <p>© 2025 Mada Fashion. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
